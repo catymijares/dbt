@@ -1,3 +1,7 @@
+WITH SRC AS (
+    SELECT * FROM {{ source('pos', 'franchise') }}
+),
+TRANSFORMED AS (
 SELECT
     FRANCHISE_ID,
     FIRST_NAME AS OWNER_FIRST_NAME,
@@ -6,4 +10,7 @@ SELECT
     COUNTRY AS OWNER_COUNTRY,
     LOWER (E_MAIL) AS EMAIL,
     PHONE_NUMBER
-FROM {{ source('pos', 'franchise') }}
+FROM SRC
+)
+
+SELECT * FROM TRANSFORMED
