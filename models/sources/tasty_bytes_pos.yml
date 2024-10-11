@@ -11,4 +11,5 @@ sources:
       - name: order_detail
       - name: order_header
       - name: truck
+      - name: franchise
       
